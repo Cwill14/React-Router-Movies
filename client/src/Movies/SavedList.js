@@ -1,22 +1,25 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
-export default class SavedList extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
+// export default class SavedList extends Component {
+//   constructor(props) {
+//     super(props);
+//   }
+const SavedList = props => {
+  // render() {
     return (
       <div className="saved-list">
         <h3>Saved Movies:</h3>
-        {this.props.list.map(movie => (
-          <Link to={`/movies/${movie.id}`}>
+        {/* {this.props.list.map(movie => ( */}
+        {props.list.map(movie => (
+          <NavLink to={`/movies/${movie.id}`}>
             <span className="saved-movie">{movie.title}</span>
-          </Link>
+          </NavLink>
         ))}
-        <div className="home-button"><Link to="/">Home</Link></div>
+        <div className="home-button"><NavLink to="/">Home</NavLink></div>
       </div>
     );
-  }
+  // }
 }
+
+export default SavedList;
